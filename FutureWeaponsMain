@@ -1,0 +1,53 @@
+package FutureWeapons;
+
+
+import items.ItemPlasmaRifle;
+import net.minecraft.item.Item;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import entities.entityplasmabolt;
+
+
+/**
+ * This @Mod annotation tells forge that we are creating a new mod. Without this, forge wont
+ * find your mod. This takes 2 values, a modid, which is a "name" for your mod. This cant be the
+ * same for ANY mod. So find a name which is new. Version is the current mod version.
+ */
+@Mod(modid = Reference.MODID, version = Reference.VERSION)
+public class FutureWeaponsMain 
+{
+	@SidedProxy( clientSide = "FutureWeapons.ClientProxy", serverSide = "FutureWeapons.CommonProxy" )
+	public static CommonProxy proxy;
+
+  public static Item Plasma_Rifle;
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event)
+	{
+        //Block handlers, handles all blocks
+
+
+        //Item handlers, handles all items
+	Plasma_Rifle = new ItemPlasmaRifle();
+	
+	RegisterHelper.registerItem(Plasma_Rifle);
+	
+	int modEntityID = 0;
+	
+	EntityRegistry.registerModEntity(entityplasmabolt.class, "Plasma Bolt", ++modEntityID, this, 64, 10, 
+	true);
+	proxy.registerRenderThings();
+   }
+   
+	{
+		}
+	}
+
+
+
+
+
