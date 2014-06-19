@@ -1,8 +1,13 @@
 package FutureWeapons;
 
 
+import items.ItemPlasmaCanister;
 import items.ItemPlasmaRifle;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -10,6 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import entities.entityplasmabolt;
 
 
@@ -25,6 +31,7 @@ public class FutureWeaponsMain
 	public static CommonProxy proxy;
 
   public static Item Plasma_Rifle;
+  public static Item Plasma_Canister;
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -33,8 +40,19 @@ public class FutureWeaponsMain
 
         //Item handlers, handles all items
 	Plasma_Rifle = new ItemPlasmaRifle();
+	Plasma_Canister = new ItemPlasmaCanister();
 	
 	RegisterHelper.registerItem(Plasma_Rifle);
+	RegisterHelper.registerItem(Plasma_Canister);
+
+	ItemStack redstoneStack = new ItemStack(Items.redstone);
+	ItemStack redstonetorchStack = new ItemStack(Blocks.redstone_torch);
+	ItemStack ironStack = new ItemStack(Items.iron_ingot);
+	ItemStack waterbucketStack = new ItemStack(Items.water_bucket);
+{
+	GameRegistry.addShapedRecipe(new ItemStack(Plasma_Canister, 16), new Object []{ "xwx", "yzy", "ywy",
+        'w', redstoneStack, 'x', redstonetorchStack, 'y', ironStack, 'z', waterbucketStack});
+
 	
 	int modEntityID = 0;
 	
@@ -45,7 +63,7 @@ public class FutureWeaponsMain
    
 	{
 		}
-	}
+	}}
 
 
 
