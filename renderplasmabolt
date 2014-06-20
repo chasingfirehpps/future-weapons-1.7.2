@@ -106,11 +106,12 @@ par1Tessellator.draw();
 private static final ResourceLocation texture = new ResourceLocation("futureweapons", 
 "textures/entities/plasma_bolt.png");
 
-
 @Override
-protected ResourceLocation getEntityTexture(Entity entity) {
+protected ResourceLocation getEntityTexture(Entity entityplasmabolt) {
 	return texture;
 }}
+
+
 
 
 
