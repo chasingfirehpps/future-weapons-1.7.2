@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
+import FutureWeapons.FutureWeaponsMain;
 import FutureWeapons.Reference;
 
 
@@ -23,6 +24,7 @@ public class ItemPlasmaRifle extends Item
 	public ItemPlasmaRifle()
 	{
 		super();
+		this.maxStackSize = 1;
 		setUnlocalizedName("PlasmaRifle");
 		setTextureName(Reference.MODID + ":plasmarifle");
 		setCreativeTab(CreativeTabs.tabCombat);
@@ -35,7 +37,7 @@ public class ItemPlasmaRifle extends Item
 
 	 @Override
 	 public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,EntityPlayer par3EntityPlayer) {
-	   if(par3EntityPlayer.capabilities.isCreativeMode||par3EntityPlayer.inventory.consumeInventoryItem(Items.redstone))
+	if(par3EntityPlayer.capabilities.isCreativeMode||par3EntityPlayer.inventory.consumeInventoryItem(FutureWeaponsMain.Plasma_Canister))
 	   {
 	     par2World.playSoundAtEntity(par3EntityPlayer, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 	 
@@ -145,6 +147,9 @@ public class ItemPlasmaRifle extends Item
 
 
 
+
+
+    
 
 
     
