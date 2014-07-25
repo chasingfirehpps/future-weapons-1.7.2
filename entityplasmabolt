@@ -37,5 +37,15 @@ if (!this.worldObj.isRemote)
 this.setDead();
 }
 }
+@Override
+protected float getGravityVelocity() 
+{
+	return 0.003F;
 }
+{
+
+}
+}
+
+
 
