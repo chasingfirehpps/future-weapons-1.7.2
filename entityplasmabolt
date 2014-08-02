@@ -25,7 +25,7 @@ protected void onImpact(MovingObjectPosition movObjPos)
 {
 if (movObjPos.entityHit != null)
 {
-float rockDamage = 15;
+float rockDamage = 12;
 movObjPos.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), rockDamage);
 }
 for (int l = 0; l < 4; ++l)
